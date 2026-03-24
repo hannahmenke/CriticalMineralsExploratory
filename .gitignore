@@ -1,0 +1,25 @@
+# TeX auxiliary files
+*.pdf
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# DRP Big Image Files
+*.raw
+*.tiff
+*.tif
+*.nc
+*.h5
+*.vol
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
