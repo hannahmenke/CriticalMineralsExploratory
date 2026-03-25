@@ -6,7 +6,15 @@
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{cite}
+\usepackage[table]{xcolor}
 \usepackage[most]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 
 \title{\textbf{Unlocking the Microscale: How Digital Rock Physics Can Secure Supply Chains for UK and European Critical Minerals}}
 \author{Hannah P. Menke \and Maja Rücker}
@@ -17,7 +25,7 @@
 \maketitle
 
 \begin{abstract}
-The United Kingdom and Europe face acute supply chain vulnerabilities for Critical Raw Materials (CRMs) essential to the energy transition and defense. While policy frameworks such as the UK Critical Minerals Strategy and the EU Critical Raw Materials Act (CRMA) set aggressive targets for domestic extraction, processing, and recycling, the technical means to extract maximum value from increasingly complex, low-grade ores still lag behind. The ``Digital Rocks'' or Digital Rock Physics (DRP) community—historically anchored in oil and gas—already offers deep expertise in multi-scale, multi-modal imaging (including CT, nano-CT, MRI, PET, and FIB-SEM) and pore-scale flow simulation. This white paper argues for a coordinated pivot of that expertise toward ore characterization, extraction technologies such as Direct Lithium Extraction (DLE), and mine waste valorization. Rather than reviewing critical minerals policy or geometallurgy in general, it proposes a DRP-led framework linking microstructural imaging, geometallurgy, recycling, and porous-material design. Used this way, DRP could shorten evaluation times, reduce environmental impacts, and strengthen the UK's and Europe's technological position in the race for secure, sustainable critical minerals.
+The United Kingdom and Europe face acute supply chain vulnerabilities for Critical Raw Materials (CRMs) essential to the energy transition and defense. While policy frameworks such as the UK Critical Minerals Strategy and the EU Critical Raw Materials Act (CRMA) set aggressive targets for domestic extraction, processing, and recycling, the technical means to extract maximum value from increasingly complex, low-grade ores still lag behind. The ``Digital Rocks'' or Digital Rock Physics (DRP) community—historically anchored in oil and gas—already offers deep expertise in multi-scale, multi-modal imaging (including CT, nano-CT, MRI, PET, and FIB-SEM) and pore-scale flow simulation. This white paper argues for a coordinated pivot of that expertise toward ore characterization, extraction technologies such as Direct Lithium Extraction (DLE), and mine waste valorization. Rather than reviewing critical minerals policy or geometallurgy in general, it proposes a DRP-led framework linking microstructural imaging, geometallurgy, recycling, and porous-material design. Used this way, DRP could shorten evaluation times, reduce environmental impacts, and strengthen the UK's and Europe's technological position in the race for secure, sustainable critical minerals. The paper is addressed primarily to policymakers, public funders, research infrastructures, geological surveys, and industrial consortia deciding where such work should begin.
 \end{abstract}
 
 \section{Context: The Geopolitical Imperative and the Global Race}
@@ -36,48 +44,124 @@ This argument sits adjacent to, but is distinct from, recent reviews of integrat
 
 Crucially, the UK and Europe already host much of the infrastructure needed for this shift. Diamond Light Source supports tomography and correlative imaging across beamlines including I13, I12, I14, and DIAD; ESRF's BM05 imaging line provides high-energy XCT and phase-contrast imaging for 3D materials characterization; and PSI's TOMCAT platform spans fast micrometer-scale to sub-100-nm tomography for geoscience and energy-materials research \cite{diamond_tomography_2026, esrf_bm05_2026, psi_tomcat_2025}. The strategic challenge is therefore less about building capability from scratch and more about coordination, shared data standards, and translation into mineral-processing workflows.
 
+That infrastructure is not limited to structure-only imaging. Diamond's I18 and I14 beamlines support micro- to nano-scale XRF/XANES/XRD mapping and combined experiments such as XRF tomography, XAS-CT, and XRD-CT, while DIAD enables quasi-simultaneous imaging and diffraction under user-supplied in situ conditions \cite{diamond_xrf_2026, diamond_diad_2026}. ESRF similarly spans chemically sensitive nano-imaging at ID16B, operando diffraction and imaging at ID15A, and X-ray absorption/emission spectroscopy at ID26 with gas handling, FT-IR, and gas-chromatography mass spectrometry \cite{esrf_id16b_2026, esrf_id15a_2026, esrf_id26_2026}. PSI's TOMCAT remains a leading dynamic imaging platform, while MAX IV already supports simultaneous in situ XAS-XRD at Balder and is explicitly developing TomoWISE and SpectroWISE as complementary structure-and-chemistry investments \cite{psi_tomcat_2025, maxiv_balder_2026, maxiv_beamlines_2024}.
+
+Even so, the critical-minerals gap is still clear. This is an inference from the facility portfolio above: the strongest routine offer remains either structure-rich imaging or chemistry-rich spectroscopy, but rarely synchronized measurement of 3D texture, mineral chemistry, reacting fluids, and dissolved products in the same experiment. ESRF's European Battery Hub addresses an analogous problem by coordinating multiple beamlines and methods around one materials system rather than relying on a single instrument \cite{esrf_eubat_2026}. Critical minerals need the same level of multimodal coordination, but with sample environments designed for ores, tailings, brines, and black-mass feedstocks rather than batteries or model catalysts.
+
+\subsection{What Should Be Added at Major Facilities?}
+The next tranche of investment should therefore prioritize integrated geo-reactive platforms rather than another generation of standalone tomography instruments:
+
+The delivery model should be distributed rather than centralized. University and regional microscopy centres are the right place for screening, sample preparation, routine micro-CT, SEM-EDX automated mineralogy, and benchtop static or flow-through experiments. Major facilities should focus on the measurements that genuinely require national-scale infrastructure: high-speed or high-energy tomography, correlative 3D chemistry, operando diffraction and spectroscopy, and in situ experiments that couple flow, temperature, pressure, and mechanics. Geological surveys and data infrastructures should host the reference datasets, standards, and long-term curation, while industrial partners provide representative ores, tailings, brines, and recycling feedstocks together with process-validation routes.
+
+\begin{itemize}
+\item \textbf{Correlative chemistry integrated with tomography:} routine hard X-ray workflows that register XRF-CT, XANES-CT, XRD-CT, and where feasible XES or Raman/IR measurements to the same 3D volume, so mineral texture and chemical state can be interpreted together rather than in separate campaigns.
+\item \textbf{Reactive flow cells with synchronized effluent analysis:} experimental rigs for brines, acidic or alkaline lixiviants, and recycling leachates with inline measurements such as ICP-OES or ICP-MS, ion chromatography, pH, Eh, conductivity, and complementary optical spectroscopy, so that released species can be tied directly to evolving pore structure and flow pathways.
+\item \textbf{Geo-relevant environmental control:} in situ platforms that combine flow and transport with temperature, confining pressure, differential stress, and mechanical loading, allowing experiments on fracture opening, permeability evolution, selective dissolution, and sorbent degradation under realistic operating conditions.
+\item \textbf{Translation infrastructure around the beamline:} reference ore suites, shared calibration standards, sample-preparation laboratories, and interoperable data pipelines so university microscopy centres can act as feeders into national facilities instead of isolated endpoints.
+\end{itemize}
+
+For critical minerals, this means the highest-value investment is not simply ``more imaging,'' but facility platforms that can observe structure, chemistry, and released products in one time-coordinated workflow. Put more sharply: routine co-registered 3D imaging, reacting-fluid analytics, and outlet-chemistry measurements for geo-reactive systems are still unusual enough across major facilities to justify targeted investment. That is the capability needed to decide which minerals are actually liberated, dissolved, transported, precipitated, or lost under realistic processing conditions.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}
+\rowcolors{2}{black!3}{white}
+\begin{tabularx}{\textwidth}{L{0.18\textwidth}Y Y Y}
+\toprule
+\textbf{Existing Strength} & \textbf{Current Limitation} & \textbf{Added Investment} & \textbf{Expected Payoff} \\
+\midrule
+World-class XCT, nano-imaging, diffraction, and spectroscopy distributed across major facilities & Structure, chemistry, and fluid measurements are often split across separate campaigns or beamlines & Correlative endstations and cross-beamline workflows for XRF-CT, XANES-CT, XRD-CT, and operando imaging & Faster, decision-relevant links between ore texture, mineral chemistry, and process response \\
+Strong in situ imaging capability for selected materials systems & Limited geo-specific sample environments for brines, lixiviants, tailings slurries, and black mass & Geo-reactive flow cells with corrosion-resistant fluidics and sample holders for ores, tailings, and recycling feedstocks & Direct evidence of dissolution, precipitation, permeability change, and selective recovery under realistic conditions \\
+Advanced spectroscopy and diffraction with some gas-handling or operando capability & Weak routine coupling to synchronized outlet-fluid analytics for dissolved metals and reaction products & Inline ICP-OES/ICP-MS, ion chromatography, pH/Eh, conductivity, and optical probes connected to beamline experiments & Ability to link what leaves the sample chemically to what changes inside it structurally \\
+Excellent national facilities but uneven local access & Regional centres can characterize samples, but often cannot feed data seamlessly into facility-scale experiments & Shared standards, calibration samples, sample-prep pipelines, and interoperable data formats from local labs to national repositories & Lower transaction cost, more comparable datasets, and broader participation from universities and SMEs \\
+\bottomrule
+\end{tabularx}
+\caption{A practical investment model for critical-minerals DRP: build on existing strengths, close integration gaps, and emphasize platforms that connect structure, chemistry, and reactive transport.}
+\label{tab:facility_gap_model}
+\end{table}
+
+Table~\ref{tab:facility_gap_model} shows why the recommended investment is better understood as a platform-integration programme than as a single new instrument purchase. The most credible path is phased. A near-term phase should upgrade existing beamlines and laboratories with shared sample environments, outlet-chemistry analytics, reference materials, and data engineering. A later phase should establish dedicated endstations only where demand, staff capacity, and demonstrator results justify them. The cost model is therefore also phased. This is an inference rather than a published facility budget, but the first phase is plausibly a multi-million-pound or multi-million-euro upgrade programme, while dedicated endstations with permanent staff, sample environments, and data services move into a low-tens-of-millions capital category.
+
+Figure~\ref{fig:drp_value_chain} summarizes where DRP can contribute along the critical-minerals value chain, from exploration through recycling.
+
 \begin{figure}[htbp]
 \centering
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|p{0.225\textwidth}|}
-\hline
-\parbox[t]{0.215\textwidth}{\textbf{Exploration}\newline 3D texture priors\newline AI training data\newline rapid screening of complex ores} &
-\parbox[t]{0.215\textwidth}{\textbf{Characterization}\newline mineral associations\newline liberation metrics\newline correlative chemistry + structure} &
-\parbox[t]{0.215\textwidth}{\textbf{Processing \& Extraction}\newline breakage behavior\newline leach-flow pathways\newline porous sorbent design} &
-\parbox[t]{0.215\textwidth}{\textbf{Recycling \& Tailings}\newline sensor calibration\newline black-mass texture\newline secondary resource mapping} \\
-\hline
-\end{tabular}
+\begin{tcbraster}[
+  raster columns=2,
+  raster equal height=rows,
+  raster column skip=4mm,
+  raster row skip=4mm,
+  enhanced,
+  boxsep=2mm,
+  left=1.5mm,
+  right=1.5mm,
+  top=1.5mm,
+  bottom=1.5mm,
+  arc=1.5mm,
+  boxrule=0.5pt,
+  colframe=black!20,
+  fonttitle=\bfseries
+]
+\begin{tcolorbox}[colback=blue!5!white, title=Exploration]
+\begin{itemize}
+\item 3D texture priors
+\item AI training data
+\item Rapid screening of complex ores
+\end{itemize}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=cyan!5!white, title=Characterization]
+\begin{itemize}
+\item Mineral associations
+\item Liberation metrics
+\item Correlative chemistry and structure
+\end{itemize}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=orange!8!white, title=Processing and Extraction]
+\begin{itemize}
+\item Breakage behavior
+\item Leach-flow pathways
+\item Porous sorbent design
+\end{itemize}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=green!6!white, title=Recycling and Tailings]
+\begin{itemize}
+\item Sensor calibration
+\item Black-mass texture
+\item Secondary resource mapping
+\end{itemize}
+\end{tcolorbox}
+\end{tcbraster}
 \caption{Where Digital Rock Physics can add decision-relevant information across the critical-minerals value chain.}
 \label{fig:drp_value_chain}
 \end{figure}
 
 Taking inspiration from the US DOE National Energy Technology Laboratory’s ``Digital Rocks Portal,'' there is a strong case for a federated European ``Digital Ore Database'' that shares multi-modal tomographic data on critical-mineral deposits and broadens access to high-resolution structural data \cite{netl_digitalrocks, digitalrocks_portal_2023}.
 
-For the purposes of this paper, it is useful to distinguish between broad strategic categories of critical minerals and a limited set of representative examples. This framing retains a policy-level perspective while illustrating where DRP may have the greatest practical relevance in UK and European settings.
+Table~\ref{tab:mineral_categories} distinguishes between broad strategic categories of critical minerals and a limited set of representative examples. This retains a policy-level perspective while illustrating where DRP may have the greatest practical relevance in UK and European settings.
 
 \begin{table}[htbp]
 \centering
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{|p{0.18\textwidth}|p{0.18\textwidth}|p{0.31\textwidth}|p{0.25\textwidth}|}
-\hline
-\textbf{Category} & \textbf{Example minerals} & \textbf{Why DRP helps} & \textbf{Why relevant in UK/Europe} \\
-\hline
-Battery materials & Lithium, cobalt, nickel, manganese, graphite & 3D texture mapping, liberation analysis, pore-scale transport, black-mass characterization, porous sorbent design for DLE & Supply-chain resilience for batteries and electrification, plus growing recycling and midstream-processing ambitions \\
-\hline
-Magnet and high-tech materials & Rare earth elements, gallium, germanium & Correlative imaging for finely disseminated phases, automated mineralogy, selective separation workflow design & Strategic importance for magnets, electronics, defense, and limited tolerance for supply disruption \\
-\hline
-Technology and alloy metals & Tungsten, tin, antimony & Ore-texture characterization, selective breakage studies, tailings re-evaluation, sensor calibration for sorting & Relevant to legacy European mining districts and to reprocessing of historical mine wastes \\
-\hline
-Secondary resources & Tailings, battery black mass, industrial residues & Multi-scale characterization of heterogeneous feedstocks, recovery-pathway design, calibration of sorting and recycling processes & Particularly compatible with UK/EU circular-economy goals, existing industrial residues, and recycling policy frameworks \\
-\hline
-\end{tabular}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}
+\rowcolors{2}{black!3}{white}
+\begin{tabularx}{\textwidth}{L{0.18\textwidth}L{0.19\textwidth}Y Y}
+\toprule
+\textbf{Category} & \textbf{Example Minerals} & \textbf{Why DRP Helps} & \textbf{Why Relevant in UK/Europe} \\
+\midrule
+Battery materials & Lithium, cobalt, nickel, manganese, graphite & 3D texture mapping, liberation analysis, pore-scale transport, black-mass characterization, and porous sorbent design for DLE & Supply-chain resilience for batteries and electrification, alongside growing recycling and midstream-processing ambitions \\
+Magnet and high-tech materials & Rare earth elements, gallium, germanium & Correlative imaging for finely disseminated phases, automated mineralogy, and selective separation workflow design & Strategic importance for magnets, electronics, and defense, with limited tolerance for supply disruption \\
+Technology and alloy metals & Tungsten, tin, antimony & Ore-texture characterization, selective breakage studies, tailings re-evaluation, and sensor calibration for sorting & Relevant to legacy European mining districts and to reprocessing of historical mine wastes \\
+Secondary resources & Tailings, battery black mass, industrial residues & Multi-scale characterization of heterogeneous feedstocks, recovery-pathway design, and calibration of sorting and recycling processes & Closely aligned with UK/EU circular-economy goals, existing industrial residues, and recycling policy frameworks \\
+\bottomrule
+\end{tabularx}
 \caption{Representative mineral categories and examples that show where DRP can add value without reducing the paper to a commodity-by-commodity inventory.}
 \label{tab:mineral_categories}
 \end{table}
+
+In practical terms, the most credible early applications are not abstract. They include lithium-favourable pegmatite terrains in Iberia and elsewhere in Europe, south-west England's prospective lithium and established tin-tungsten province, Nordic and wider European CRM provinces captured on EuroGeoSurveys maps, and battery-recycling streams in which black mass is already being treated as a strategic secondary feedstock in EU projects \cite{egs_lithium_map_2020, bgs_uk_crm_2022, egs_crm_map_2016, batraw_2022}. These are the kinds of settings in which a DRP-led demonstrator programme could start quickly and show practical value.
 
 \section{Pillar I: Exploration and Advanced Characterization}
 The implementation of DRP can shift mineral exploration strategies, particularly by supporting AI-based exploration. Recent review literature identifies AI-enabled geological exploration as a rapidly developing frontier, with mineral-prospectivity mapping remaining one of its best-established use cases \cite{yang_ai_exploration_2024, ai_mineral_prospectivity_2011}. DRP provides ultra-high-resolution, 3D ground-truth datasets that can improve these predictive models. It can also shorten the path from discovery to commercial evaluation by enabling faster orebody assessment using advanced sensing and analytical methods \cite{doe_arpae}.
@@ -85,7 +169,7 @@ The implementation of DRP can shift mineral exploration strategies, particularly
 Moving beyond traditional 2D thin sections, multi-modal tomographic approaches from macro-CT to nano-CT can quantify 3D mineral associations, grain sizes, and liberation characteristics. When paired with SEM-EDX-based automated mineralogy, these correlative workflows can locate finely disseminated or texturally complex critical minerals that might otherwise escape detection \cite{buyse_correlative_2023}. Emerging 3D liberation models further suggest a route from ore texture to process-relevant particle behavior \cite{guntoro_liberation_2021}. Together, these data-rich models support predictive geometallurgy by integrating sparse process data into spatial orebody models before full-scale mining, improving flowsheet design from the outset \cite{lishchuk_predictive_2019}.
 
 \begin{tcolorbox}[enhanced, colback=blue!3!white, colframe=blue!35!black, title=\textbf{Illustrative Case Study: Correlative Imaging for Complex Pegmatites}, fonttitle=\bfseries, arc=1.5mm, boxrule=0.8pt]
-Buyse et al. combined X-ray micro-CT with SEM-EDX automated mineralogy to resolve internal mineral relationships in Sn-Nb-Ta pegmatites and build a mineral library for 3D interpretation \cite{buyse_correlative_2023}. The implication for critical minerals is straightforward: similar workflows can be adapted to lithium-bearing pegmatites and other texturally complex ores where 2D sections alone are an incomplete guide to processing behavior.
+Buyse et al. combined X-ray micro-CT with SEM-EDX automated mineralogy to resolve internal mineral relationships in Sn-Nb-Ta pegmatites and build a mineral library for 3D interpretation \cite{buyse_correlative_2023}. The implication for critical minerals is straightforward: similar workflows can be adapted to lithium-bearing pegmatites and other texturally complex ores where 2D sections alone are an incomplete guide to processing behavior. In practice, this reduces reliance on 2D inference and provides a firmer basis for liberation testing and flowsheet design.
 \end{tcolorbox}
 
 \section{Pillar II: Optimizing Mineral Processing and Extraction}
@@ -99,7 +183,7 @@ Developing a circular economy is a cornerstone of both UK and EU critical minera
 To recycle these materials effectively, advanced sorting mechanisms need to be deployed and calibrated. Sensor-based sorting reviews in mineral processing point to preconcentration, waste reduction, and multi-sensor fusion as key opportunities for more selective treatment of heterogeneous feedstocks \cite{peukert_sorting_2022}. High-resolution 3D imaging can serve as a micro-scale calibration tool for these industrial sensors. Multi-scale DRP methods can also be applied to unconventional secondary feedstocks such as coal refuse, fly ash, and acid mine drainage. In addition, techniques such as FIB-SEM and nano-CT can characterize e-waste and battery ``black mass'' at sub-micron scales to optimize both mechanical and chemical recycling pathways by mapping structural degradation and elemental composition \cite{battery_blackmass_2021}.
 
 \begin{tcolorbox}[enhanced, colback=green!3!white, colframe=green!35!black, title=\textbf{Illustrative Case Study: Black-Mass Characterization}, fonttitle=\bfseries, arc=1.5mm, boxrule=0.8pt]
-Vanderbruggen et al. showed that automated mineralogy can characterize the composition and texture of spent lithium-ion batteries in ways that are directly relevant to recycling process design \cite{battery_blackmass_2021}. For a DRP-led critical-minerals agenda, this matters because it moves ``urban mining'' from bulk assay toward texture-aware process optimization, where liberation, coating residues, and phase associations all influence recovery.
+Vanderbruggen et al. showed that automated mineralogy can characterize the composition and texture of spent lithium-ion batteries in ways that are directly relevant to recycling process design \cite{battery_blackmass_2021}. For a DRP-led critical-minerals agenda, this matters because it moves ``urban mining'' from bulk assay toward texture-aware process optimization, where liberation, coating residues, and phase associations all influence recovery. The practical outcome is better discrimination between recycling routes and a clearer basis for process tuning.
 \end{tcolorbox}
 
 \section{Next-Generation Digital Rocks: Expanding the Horizon}
@@ -124,23 +208,27 @@ To overcome these challenges, the recommendations below are framed as near-term 
 
 \begin{tcolorbox}[enhanced, colback=gray!3!white, colframe=blue!40!black, title=\Large\textbf{Key Policy Recommendations}, colbacktitle=blue!40!black, drop fuzzy shadow, fonttitle=\bfseries, breakable, arc=2mm, boxrule=1pt]
 \textbf{1. Launch Translational Demonstrators by 2027:}\\
-UKRI, Horizon Europe, and national innovation agencies should establish dedicated calls for DRP-to-processing demonstrators. Each project should require a tripartite consortium spanning imaging science, orebody owner or recycler, and process scale-up capability. A practical target would be three to five pilot projects that move from characterization to pilot-plant decisions within 24--36 months.
+UKRI, Horizon Europe, and national innovation agencies should establish dedicated calls for DRP-to-processing demonstrators. Each project should require a tripartite consortium spanning imaging science, orebody owner or recycler, and process scale-up capability. A practical target would be three to five pilot projects that move from characterization to pilot-plant decisions within 24--36 months. At minimum, the first wave should include one hard-rock liberation case, one brine or DLE case, and one recycling or tailings case, each ending with a public benchmark dataset and a documented processing or recovery decision.
 
 \vspace{2mm}
 \textbf{2. Define a ``Digital Ore Passport'' Standard by 2027:}\\
-Regulators, geological surveys, and research infrastructures should publish a minimum data specification for publicly supported mining, recycling, and tailings projects. At a minimum, this should include multi-modal imaging metadata, mineralogical ground truth, uncertainty estimates, and machine-readable process descriptors. The goal should be adoption across all publicly funded pilot projects by 2028.
+The European Critical Raw Materials Board, working through its exploration and circularity-related subgroups, should convene EuroGeoSurveys, national geological surveys, and major imaging facilities to publish a minimum data specification for publicly supported mining, recycling, and tailings projects \cite{eu_crm_board_2026}. At a minimum, this should include multi-modal imaging metadata, mineralogical ground truth, uncertainty estimates, machine-readable process descriptors, and standardized reporting for influent and effluent chemistry in reactive experiments. The goal should be adoption across all publicly funded pilot projects by 2028.
 
 \vspace{2mm}
 \textbf{3. Stand Up a Federated European Digital Ore Database by 2028:}\\
-The European Commission, national geological surveys, and major imaging facilities should create a shared repository with open metadata, benchmark datasets, and application programming interfaces for model development. A reasonable first milestone would be 100 well-annotated benchmark datasets covering hard-rock ores, tailings, and battery-recycling feedstocks within the first two years.
+The European Commission, national geological surveys, and major imaging facilities should create a shared repository with open metadata, benchmark datasets, and application programming interfaces for model development. A practical route would be to build this through EuroGeoSurveys' European Geological Data Infrastructure (EGDI) and ensure interoperability with the JRC's Raw Materials Information System (RMIS) rather than creating an isolated platform from scratch \cite{egdi_2026, rmis_2026}. A reasonable first milestone would be 100 well-annotated benchmark datasets covering hard-rock ores, tailings, and battery-recycling feedstocks within the first two years, alongside a small suite of shared reference materials and at least three validated cross-facility workflows.
 
 \vspace{2mm}
 \textbf{4. Build Workforce Capacity with Cross-Disciplinary Training Centres:}\\
 The UK and Europe should fund doctoral and industrial training centres focused on the intersection of imaging, machine learning, mineral processing, and recycling. The point is not only to train students, but to create a talent pipeline that can move between beamlines, laboratories, software teams, and pilot plants. A useful benchmark would be two to three centres and at least 40 jointly supervised researchers by 2030.
+
+\vspace{2mm}
+\textbf{5. Build Integrated Geo-Reactive Endstations by 2030:}\\
+Major facilities should co-invest in a small number of shared endstations that combine hard X-ray imaging with chemically sensitive mapping and synchronized outlet-fluid analysis. These platforms should support brines, acidic and alkaline lixiviants, elevated temperatures and pressures, and controlled mechanical loading, with inline measurements such as ICP-OES/ICP-MS, pH/Eh, conductivity, and complementary spectroscopic probes. The first step should be upgrading existing beamlines and laboratories; dedicated endstations should follow where user demand and demonstrator outcomes justify them. A credible target would be one UK platform and one to two continental European platforms, each accessible through open calls and configured for ores, tailings, and recycling feedstocks rather than only idealized model systems.
 \end{tcolorbox}
 
 \section{Conclusion}
-Leveraging the existing Digital Rock Physics community gives the UK and Europe a plausible route to differentiation in the race for secure and sustainable critical minerals. The paper's contribution is not to review critical minerals, geometallurgy, or mine digitization separately, but to connect those literatures and argue that DRP can serve as a unifying technical layer between exploration, process design, recycling, and porous-material innovation. By redirecting this expertise from hydrocarbons to hard rocks and combining multiple imaging modalities to characterize both ores and engineered porous materials, the region can improve how it explores, processes, and recycles mineral resources while strengthening supply-chain resilience for the energy transition.
+Leveraging the existing Digital Rock Physics community gives the UK and Europe a plausible route to differentiation in the race for secure and sustainable critical minerals. The paper's contribution is not to review critical minerals, geometallurgy, or mine digitization separately, but to connect those literatures and argue that DRP can serve as a unifying technical layer between exploration, process design, recycling, and porous-material innovation. By redirecting this expertise from hydrocarbons to hard rocks and combining multiple imaging modalities to characterize both ores and engineered porous materials, the region can improve how it explores, processes, and recycles mineral resources while strengthening supply-chain resilience for the energy transition. The highest-value facility investment is therefore not another standalone imaging instrument, but integrated geo-reactive platforms that combine 3D imaging, chemistry, and synchronized effluent analysis under realistic flow, thermal, pressure, and mechanical conditions. The most credible next step is a phased programme in which regional centres provide screening and sample preparation, national facilities deliver multimodal in situ measurements, and shared data infrastructures turn those experiments into reusable standards and benchmark datasets. A first wave should center on one brine or DLE demonstrator, one hard-rock liberation demonstrator, and one recycling or tailings demonstrator, all linked from the outset to common data standards and a federated European digital ore infrastructure.
 
 \begin{thebibliography}{99}
 
@@ -269,6 +357,51 @@ Nwaila, G.T., Ghorbani, Y., Zhang, S.-E., Tolmay, V., Rose, D.H., \& Nwaila, N.G
 
 \bibitem{guntoro_liberation_2021}
 Guntoro, P.I., Ghorbani, Y., Parian, M., Butcher, A.R., Kuva, J., \& Rosenkranz, J., ``Development and experimental validation of a texture-based 3D liberation model,'' \textit{Minerals Engineering}, 173, 106828, 2021. DOI: \url{https://doi.org/10.1016/j.mineng.2021.106828}.
+
+\bibitem{diamond_xrf_2026}
+Diamond Light Source, ``XRF Beamlines for Industry,'' \url{https://www.diamond.ac.uk/industry/Techniques-Available/Spectroscopy/X-ray-Fluorescence-XRF/XRF-beamlines.html}. Accessed March 25, 2026.
+
+\bibitem{diamond_diad_2026}
+Diamond Light Source, ``Welcome to DIAD,'' \url{https://www.diamond.ac.uk/Instruments/Imaging-and-Microscopy/DIAD.html}. Accessed March 25, 2026.
+
+\bibitem{esrf_id16b_2026}
+European Synchrotron Radiation Facility (ESRF), ``ID16B - Nano-analysis Beamline,'' \url{https://www.esrf.fr/UsersAndScience/Experiments/ID16B}. Accessed March 25, 2026.
+
+\bibitem{esrf_id15a_2026}
+European Synchrotron Radiation Facility (ESRF), ``Materials Chemistry - EH3,'' \url{https://www.esrf.fr/home/UsersAndScience/Experiments/ID15A/materials-chemistry--eh3.html}. Accessed March 25, 2026.
+
+\bibitem{esrf_id26_2026}
+European Synchrotron Radiation Facility (ESRF), ``ID26 - X-ray absorption and emission spectroscopy,'' \url{https://www.esrf.fr/UsersAndScience/Experiments/ID26}. Accessed March 25, 2026.
+
+\bibitem{maxiv_balder_2026}
+MAX IV Laboratory, ``Multimodal in-situ XAS-XRD,'' \url{https://www.maxiv.lu.se/beamlines-accelerators/beamlines/balder/experimental-station/multimodal-in-situ-xas-xrd/}. Accessed March 25, 2026.
+
+\bibitem{maxiv_beamlines_2024}
+MAX IV Laboratory, ``Beamlines,'' including proposed SpectroWISE and TomoWISE beamlines, \url{https://www.maxiv.lu.se/beamlines-accelerators/beamlines/}. Accessed March 25, 2026.
+
+\bibitem{esrf_eubat_2026}
+European Synchrotron Radiation Facility (ESRF), ``European Battery HUB (EuBat),'' \url{https://www.esrf.fr/HUB/EuBattery}. Accessed March 25, 2026.
+
+\bibitem{egs_lithium_map_2020}
+EuroGeoSurveys, ``The two wide maps data sets of EuroGeoSurveys,'' including the lithium mineralization map of Europe, 2020. \url{https://eurogeosurveys.org/the-two-wide-maps-data-sets-of-eurogeosurveys/}. Accessed March 24, 2026.
+
+\bibitem{bgs_uk_crm_2022}
+British Geological Survey, ``Report identifies areas of the UK prospective for critical raw materials,'' 2022. \url{https://www.bgs.ac.uk/news/report-identifies-areas-of-the-uk-prospective-for-critical-raw-materials/}. Accessed March 24, 2026.
+
+\bibitem{egs_crm_map_2016}
+EuroGeoSurveys, ``Map of Critical Raw Material Deposits in Europe,'' 2016, updated online. \url{https://eurogeosurveys.org/egs-publications/map-of-critical-raw-material-deposits-in-europe/}. Accessed March 24, 2026.
+
+\bibitem{batraw_2022}
+European Commission CORDIS, ``Recycling of end of life battery packs for domestic raw material supply chains and enhanced circular economy (BATRAW),'' Project ID 101058359. \url{https://cordis.europa.eu/project/id/101058359}. Accessed March 24, 2026.
+
+\bibitem{eu_crm_board_2026}
+European Commission, ``The European Critical Raw Materials Board,'' \url{https://single-market-economy.ec.europa.eu/sectors/raw-materials/areas-specific-interest/critical-raw-materials/critical-raw-materials-act/board_en}. Accessed March 24, 2026.
+
+\bibitem{egdi_2026}
+EuroGeoSurveys, ``EGDI -- European Geological Data Infrastructure,'' \url{https://eurogeosurveys.org/projects/egdi/}. Accessed March 24, 2026.
+
+\bibitem{rmis_2026}
+European Commission Joint Research Centre, ``RMIS -- Raw Materials Information System,'' \url{https://rmis.jrc.ec.europa.eu/}. Accessed March 24, 2026.
 
 \end{thebibliography}
 
