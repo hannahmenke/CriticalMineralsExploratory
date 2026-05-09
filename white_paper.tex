@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \geometry{a4paper, margin=1in}
-\usepackage{hyperref}
+\usepackage{xurl}
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{cite}
@@ -13,17 +13,24 @@
 \usepackage{array}
 \usepackage{ragged2e}
 \usepackage{tikz}
+\usepackage{hyperref}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric}
 
 \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 \newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 
 \title{\textbf{Unlocking the Microscale: How Digital Rock Physics Can Secure Supply Chains for UK and European Critical Minerals}}
-\author{Hannah P. Menke$^{1,2}$ \& Maja Rücker$^{3,4}$\\[0.5em]
+\author{%
+Hannah P. Menke$^{1,2}$, Alessio Scanziani$^{3}$, Maja Rücker$^{4,5}$\\[0.7em]
+\begin{tabular}{c}
 \small $^{1}$Institute of GeoEnergy Engineering, Heriot-Watt University, Edinburgh, UK\\
-\small $^{2}$Subsurface Energy Transition and Innovation Centre, Heriot-Watt University, Edinburgh, UK\\
-\small $^{3}$Eindhoven University of Technology, Mechanical Engineering, 5600 MB, Eindhoven, The Netherlands\\
-\small $^{4}$Max Planck Institute for Polymer Research, 55128, Mainz, Germany}
+\small $^{2}$Subsurface Energy Transition and Innovation Centre,\\
+\small Heriot-Watt University, Edinburgh, UK\\
+\small $^{3}$International Energy Agency, Paris, France\\
+\small $^{4}$Eindhoven University of Technology, Mechanical Engineering,\\
+\small 5600 MB, Eindhoven, The Netherlands\\
+\small $^{5}$Max Planck Institute for Polymer Research, 55128, Mainz, Germany
+\end{tabular}}
 \date{\today}
 
 \begin{document}
@@ -31,7 +38,7 @@
 \maketitle
 
 \begin{abstract}
-The United Kingdom and Europe face acute supply chain vulnerabilities for Critical Raw Materials (CRMs) essential to the energy transition, high-tech industry, and defence. While policy frameworks such as the UK Critical Minerals Strategy and the EU Critical Raw Materials Act (CRMA) set aggressive targets for domestic extraction, processing, and recycling, many prospective regional resources remain underexplored, texturally complex, historically worked, or economically less forgiving than the globally dominant deposits that currently set market terms \cite{albert_crm_europe_2025, bgs_uk_crm_2022, uk_vision_2035_2026}. In such settings, even modest improvements in liberation, selectivity, recovery, and environmental performance can materially affect project viability. Yet many of the resulting decisions, from orebody evaluation to liberation, leaching, and recycling-route selection, are still made with limited three-dimensional information about texture, connectivity, and reactive pathways. The ``Digital Rocks'' or Digital Rock Physics (DRP) community, historically anchored in oil and gas, already offers a multiscale toolkit of 3D imaging, correlative chemistry, AI-enabled image analysis, and numerical modelling that can help close that gap. This white paper sets out a DRP-led framework linking those capabilities to ore characterisation, extraction technologies such as Direct Lithium Extraction (DLE), and mine waste valorisation. In this role, DRP could shorten evaluation times, reduce environmental impacts, strengthen environmental accountability, and strengthen the UK's and Europe's technological position in the race for secure, sustainable critical minerals.
+The United Kingdom and Europe face acute supply chain vulnerabilities for Critical Raw Materials (CRMs) essential to the energy transition, high-tech industry, and defence. While the EU Critical Raw Materials Act (CRMA) sets 2030 benchmarks for domestic extraction, processing, and recycling, the UK's Vision 2035 sets a 2035 ambition for at least 10\% of aggregate annual UK critical-mineral demand to be met through domestic production, alongside greater circularity and supply-chain resilience. Many prospective regional resources remain underexplored, texturally complex, historically worked, or economically less forgiving than the globally dominant deposits that currently set market terms \cite{albert_crm_europe_2025, bgs_uk_crm_2022, uk_vision_2035_2026}. In such settings, even modest improvements in liberation, selectivity, recovery, and environmental performance can materially affect project viability. Yet many of the resulting decisions, from orebody evaluation to liberation, leaching, and recycling-route selection, are still made with limited three-dimensional information about texture, connectivity, and reactive pathways. The ``Digital Rocks'' or Digital Rock Physics (DRP) community, historically anchored in oil and gas, already offers a multiscale toolkit of 3D imaging, correlative chemistry, AI-enabled image analysis, and numerical modelling that can help close that gap. This white paper sets out a DRP-led framework linking those capabilities to ore characterisation, extraction technologies such as Direct Lithium Extraction (DLE), and mine waste valorisation. In this role, DRP could shorten evaluation times, reduce environmental impacts, strengthen environmental accountability, and strengthen the UK's and Europe's technological position in the race for secure, sustainable critical minerals.
 \end{abstract}
 
 \section{Context: The Geopolitical Imperative and the Global Race}
@@ -165,7 +172,7 @@ Figure~\ref{fig:drp_value_chain} shows where DRP can add decision-relevant infor
 \label{fig:drp_value_chain}
 \end{figure}
 
-Modelled on the NETL Digital Rocks Portal, a federated European ``Digital Ore Database’’ sharing multi-modal tomographic data on critical-mineral deposits would broaden access to high-resolution structural data \cite{netl_digitalrocks, digitalrocks_portal_2023}.
+Modelled on the NETL Digital Rocks Portal, a federated European ``Digital Ore Database'' sharing multi-modal tomographic data on critical-mineral deposits would broaden access to high-resolution structural data \cite{netl_digitalrocks, digitalrocks_portal_2023}.
 
 Table~\ref{tab:mineral_categories} distinguishes between broad strategic categories of critical minerals and a limited set of representative examples. This retains a policy-level perspective while illustrating where DRP may have the greatest practical relevance in UK and European settings.
 
@@ -179,7 +186,7 @@ Table~\ref{tab:mineral_categories} distinguishes between broad strategic categor
 \toprule
 \textbf{Category} & \textbf{Example Minerals} & \textbf{Why DRP Helps} & \textbf{Why Relevant in UK/Europe} \\
 \midrule
-Battery materials & Lithium, cobalt, nickel, manganese, graphite & 3D texture mapping, liberation analysis, pore-scale transport, black-mass characterisation, and porous sorbent design for DLE & Cornwall's hard-rock and brine lithium resources (Cornish Lithium; Imerys St Austell); Portugal's Barroso spodumene pegmatites; Finland's Keliber lithium project; Finnish nickel-cobalt sulphides (Terrafame, Sotkamo); and EU battery recycling streams \\
+Battery materials & Lithium, cobalt, nickel, manganese, graphite & 3D texture mapping, liberation analysis, pore-scale transport, black-mass characterisation, and porous sorbent design for DLE & Cornwall's hard-rock and brine lithium resources, including the St Austell district and geothermal brine projects; Portugal's Barroso spodumene pegmatites; Finland's Keliber lithium project; Finnish nickel-cobalt sulphides (Terrafame, Sotkamo); and EU battery recycling streams \\
 Magnet and high-tech materials & Rare earth elements, gallium, germanium & Correlative imaging for finely disseminated phases, automated mineralogy, and selective separation workflow design & Sweden's Per Geijer iron-apatite deposits (LKAB) and Norra Kärr alkaline complex; Norway's Fen carbonatite REE province; downstream gallium and germanium recovery from zinc smelter residues in Belgium and Germany \\
 Technology and alloy metals & Tungsten, tin, antimony & Ore-texture characterisation, selective breakage studies, tailings re-evaluation, and sensor calibration for sorting & Cornwall's South Crofty tin mine and Drakelands tungsten deposit; Portugal's Panasqueira tungsten-tin mine; antimony-bearing tailings across Iberia and the UK's southwest mining districts \\
 Secondary resources & Tailings, battery black mass, industrial residues & Multi-scale characterisation of heterogeneous feedstocks, recovery-pathway design, and calibration of sorting and recycling processes & EU battery gigafactory waste streams; Cornish and Iberian historical mining tailings; aluminium and copper smelter by-products in Germany, France, and Belgium, where urban and industrial recycling aligns with CRMA circularity targets \\
@@ -201,9 +208,9 @@ Buyse et al. combined X-ray micro-CT with SEM-EDX automated mineralogy to resolv
 \end{tcolorbox}
 
 \section{Pillars III and IV: Optimising Mineral Processing, Extraction, and Engineered Materials}
-Critical mineral extraction is energy- and water-intensive at scale, and DRP offers several pathways for optimising these processes. Comminution (crushing and grinding), for example, is exceptionally energy-intensive: grinding alone accounts for approximately 3\% of global electricity generation and routinely exceeds 50\% of a single mine site's total power demand \cite{norgate_comminution_2010}. This scale means that a roughly 14\% reduction in relative grindability index, from 0.93 to 0.80, to reach the same 80\% passing 74~$\mu$m grind size after inducing preferential intergranular breakage in magnetite ore, together with a 13.19\% increase in overall liberation, translates into measurable energy savings and improved recovery at the plant level \cite{kyle_processing_2015, gao_hvep_2017}. DRP enables the microstructural characterisation of grain boundaries, fracture networks, and mineral associations that underpin these more selective strategies. When those image-derived descriptors are linked to ML models trained on process and assay data, the workflow can shift from retrospective diagnosis toward forward process optimisation, including adaptive grinding targets, breakage prediction, and faster flowsheet screening.
+Critical mineral extraction is energy- and water-intensive at scale, and DRP offers several pathways for optimising these processes. Comminution (crushing and grinding), for example, is exceptionally energy-intensive: grinding alone accounts for approximately 3\% of global electricity generation and routinely exceeds 50\% of a single mine site's total power demand \cite{norgate_comminution_2010}. At the ore and process-test scale, improvements such as a roughly 14\% reduction in relative grindability index, from 0.93 to 0.80, to reach the same 80\% passing 74~$\mu$m grind size after inducing preferential intergranular breakage in magnetite ore, together with a 13.19\% increase in overall liberation, point to a plausible route for reducing comminution energy demand and improving downstream recovery if those effects persist under plant-scale operating conditions \cite{kyle_processing_2015, gao_hvep_2017}. DRP enables the microstructural characterisation of grain boundaries, fracture networks, and mineral associations that underpin these more selective strategies. When those image-derived descriptors are linked to ML models trained on process and assay data, the workflow can shift from retrospective diagnosis toward forward process optimisation, including adaptive grinding targets, breakage prediction, and faster flowsheet screening.
 
-Similarly, in operations such as in-situ and heap leaching, engineers can use dynamic imaging (e.g., PET or MRI) and pore-scale flow simulation to map the transport of lixivium \cite{mri_heap_leach_2015}. That kind of process understanding can improve permeability management and dissolution efficiency while reducing unnecessary excavation. In this setting, surrogate models and physics-informed ML can be trained against time-resolved image volumes, effluent chemistry, and operating parameters to accelerate scenario testing and identify the variables most likely to improve contact efficiency or selective dissolution. DRP is also relevant to emerging direct extraction technologies. Engineered porous materials such as metal-organic frameworks (MOFs), ion sieves, and ion-selective membranes are increasingly being explored for lower-footprint separations, including lithium extraction from brines \cite{mofs_lithium_2026, mojid_dle_2024, baird_dle_2024}. In these systems, the key imaging target is often not the brine itself but the pore architecture, accessibility, degradation, and cycling behaviour of the sorbents or membranes that control selectivity and throughput; AI-assisted segmentation and reduced-order models can then be used to connect those structural changes to capacity fade, fouling, and operating windows.
+Similarly, in operations such as in-situ and heap leaching, engineers can use dynamic imaging (e.g., PET or MRI) and pore-scale flow simulation to map leach-solution transport \cite{mri_heap_leach_2015}. That kind of process understanding can improve permeability management and dissolution efficiency while reducing unnecessary excavation. In this setting, surrogate models and physics-informed ML can be trained against time-resolved image volumes, effluent chemistry, and operating parameters to accelerate scenario testing and identify the variables most likely to improve contact efficiency or selective dissolution. DRP is also relevant to emerging direct extraction technologies. Engineered porous materials such as metal-organic frameworks (MOFs), ion sieves, and ion-selective membranes are increasingly being explored for lower-footprint separations, including lithium extraction from brines \cite{mofs_lithium_2026, mojid_dle_2024, baird_dle_2024}. In these systems, the key imaging target is often not the brine itself but the pore architecture, accessibility, degradation, and cycling behaviour of the sorbents or membranes that control selectivity and throughput; AI-assisted segmentation and reduced-order models can then be used to connect those structural changes to capacity fade, fouling, and operating windows.
 
 In situ DRP is most straightforward in fixed-solid or slowly evolving flow-through systems, where fluid movement can be interpreted against a stable pore structure. Agitated particle systems are still tractable, but they require substantially faster imaging and more careful time-resolved analysis because the geometry, contacts, and transport pathways evolve continuously during measurement.
 
@@ -212,7 +219,7 @@ Across these examples, DRP shifts process decisions that would otherwise rest on
 Similarly, DRP insights can be extended to assess engineered materials derived from extracted products, such as porous battery electrodes, helping relate extraction quality directly to downstream product performance.
 
 \section{Pillar V: Tailings Valorisation and the Circular Economy}
-Legacy mine tailings frequently contain unrecovered critical minerals---tellurium, antimony, and tungsten among them---at concentrations that can be economically significant; recovering them is central to both UK and EU circularity strategies. Recent reviews highlight both the strategic importance of reprocessing mine tailings and the opportunity to recover critical materials from them \cite{sarker_tailings_2022, araya_tailings_2020, nwaila_minewaste_2021}. 
+Legacy mine tailings can contain unrecovered critical minerals---tellurium, antimony, and tungsten among them---at concentrations that may be economically significant in favourable site-specific settings; recovering them is central to both UK and EU circularity strategies. Recent reviews highlight both the strategic importance of reprocessing mine tailings and the opportunity to recover critical materials from them \cite{sarker_tailings_2022, araya_tailings_2020, nwaila_minewaste_2021}. 
 
 To recycle these materials effectively, advanced sorting mechanisms need to be deployed and calibrated. Sensor-based sorting reviews in mineral processing point to preconcentration, waste reduction, and multi-sensor fusion as key opportunities for more selective treatment of heterogeneous feedstocks \cite{peukert_sorting_2022}. High-resolution 3D imaging can serve as a micro-scale calibration tool for these industrial sensors, while ML classifiers can use those image-derived labels to improve sensor fusion, particle discrimination, and route selection across heterogeneous waste streams. Multi-scale DRP methods can also be applied to unconventional secondary feedstocks such as coal refuse, fly ash, and acid mine drainage. In addition, techniques such as FIB-SEM and nano-CT can characterise e-waste and battery ``black mass'' at sub-micron scales to optimise both mechanical and chemical recycling pathways by mapping structural degradation and elemental composition \cite{battery_blackmass_2021}; in this setting, AI methods are well suited to phase identification, anomaly detection, and linking highly variable textures to downstream recovery performance.
 
@@ -272,7 +279,7 @@ Excellent national facilities but uneven local access & Regional centres can cha
 \label{tab:facility_gap_model}
 \end{table}
 
-Table~\ref{tab:facility_gap_model} indicates that the recommended investment is better conceived as a platform-integration programme than as a single instrument purchase. A phased approach is the most plausible. An initial phase should upgrade existing beamlines and laboratories with shared sample environments, outlet-chemistry analytics, reference materials, data engineering, and benchmark-ready modelling workflows running across GPU and CPU/HPC resources. A later phase should establish dedicated endstations only where demand, staff capacity, and demonstrator results justify them. The same logic applies to financing. Although these figures are indicative rather than drawn from a published facility budget, the initial phase is plausibly a multi-million-pound or multi-million-euro upgrade programme, while dedicated endstations with permanent staff, sample environments, GPU and CPU/HPC compute support, and data services would move into a low-tens-of-millions capital category.
+Table~\ref{tab:facility_gap_model} indicates that the recommended investment is better conceived as a platform-integration programme than as a single instrument purchase. A phased approach is the most plausible. An initial phase should upgrade existing beamlines and laboratories with shared sample environments, outlet-chemistry analytics, reference materials, data engineering, and benchmark-ready modelling workflows running across GPU and CPU/HPC resources. A later phase should establish dedicated endstations only where demand, staff capacity, and demonstrator results justify them. The same logic applies to financing. As order-of-magnitude author estimates rather than published facility budget figures, the initial phase would likely sit in a multi-million-pound or multi-million-euro upgrade category, while dedicated endstations with permanent staff, sample environments, GPU and CPU/HPC compute support, and data services would likely move into a low-tens-of-millions capital category.
 
 The following recommendations identify actions that could be initiated within a single public funding cycle:
 
@@ -299,6 +306,12 @@ Major facilities in the UK and Europe should co-invest in a small number of shar
 
 \section{Conclusion}
 The existing Digital Rock Physics community positions the UK and Europe to make a distinctive contribution to critical minerals development. Many of the most consequential decisions in critical-minerals development, from orebody evaluation to comminution, leaching, and recycling, depend on three-dimensional structural and reactive information that bulk assays and section-based methods cannot fully resolve. DRP offers a way to supply that information by combining multiscale imaging, correlative chemistry, physics-based simulation, AI-assisted interpretation, and access to GPU and CPU/HPC compute to characterise both ores and engineered porous materials. In UK and European settings, that value lies not only in stronger supply security and process efficiency, but also in making lower-impact, more publicly defensible development pathways easier to identify and justify. The highest-value facility investment is therefore not another standalone imaging instrument, but integrated geo-reactive platforms that combine 3D imaging, chemistry, synchronised effluent analysis, and reproducible modelling workflows under realistic flow, thermal, pressure, and mechanical conditions. A phased programme should link regional centres that provide screening, sample preparation, training-data generation, and feeder access to national compute with national facilities that deliver multimodal in situ measurements and shared data infrastructures that turn those experiments into reusable standards, benchmark datasets, and validated surrogates. The first wave should centre on one brine or DLE demonstrator, one hard-rock liberation demonstrator, and one recycling or tailings demonstrator, all linked from the outset to common data standards and a federated UK-European digital ore infrastructure.
+
+\section*{Acknowledgements}
+The views expressed in this paper are those of the authors and do not necessarily reflect the views or policy positions of the International Energy Agency or its member countries.
+
+\section*{Author Contributions}
+H.P.M.: Conceptualization, Writing -- original draft. A.S.: Investigation, Writing -- review \& editing. M.R.: Investigation, Writing -- review \& editing.
 
 \begin{thebibliography}{99}
 \bibitem{abdellatif_benchmark_2026}
@@ -358,9 +371,6 @@ Department of Energy, ``U.S. Department of Energy Launches Mine of the Future In
 \bibitem{doe_regional_consortia_2025}
 Department of Energy, ``U.S. Department of Energy Invests \$45 Million to Support Regional Consortia Focused on Securing Domestic Critical Minerals and Materials,'' January 6, 2025. \url{https://www.energy.gov/hgeo/articles/us-department-energy-invests-45-million-support-regional-consortia-focused-securing}. Accessed March 26, 2026.
 
-\bibitem{diamond_tomography_2026}
-Diamond Light Source, ``Tomography,'' \textit{Imaging Techniques}, \url{https://www.diamond.ac.uk/Instruments/Techniques/Imaging/Tomography.html}. Accessed March 24, 2026.
-
 \bibitem{diamond_diad_2026}
 Diamond Light Source, ``Welcome to DIAD,'' \url{https://www.diamond.ac.uk/Instruments/Imaging-and-Microscopy/DIAD.html}. Accessed March 25, 2026.
 
@@ -390,9 +400,6 @@ European Commission CORDIS, ``Recycling of end of life battery packs for domesti
 
 \bibitem{rmis_2026}
 European Commission Joint Research Centre, ``RMIS -- Raw Materials Information System,'' \url{https://rmis.jrc.ec.europa.eu/}. Accessed March 24, 2026.
-
-\bibitem{esrf_bm05_2026}
-European Synchrotron Radiation Facility (ESRF), ``BM05 - Industrial Imaging beamline,'' \url{https://www.esrf.fr/fr/home/UsersAndScience/Experiments/BM05.html}. Accessed March 24, 2026.
 
 \bibitem{esrf_eubat_2026}
 European Synchrotron Radiation Facility (ESRF), ``European Battery HUB (EuBat),'' \url{https://www.esrf.fr/HUB/EuBattery}. Accessed March 25, 2026.
@@ -448,9 +455,6 @@ Jangda, Z., Menke, H., Busch, A., Geiger, S., Bultreys, T., \& Singh, K., ``Subs
 \bibitem{karniadakis_piml_2021}
 Karniadakis, G.E., Kevrekidis, I.G., Lu, L., Perdikaris, P., Wang, S., \& Yang, L., ``Physics-informed machine learning,'' \textit{Nature Reviews Physics}, 3, 422--440, 2021. DOI: \url{https://doi.org/10.1038/s42254-021-00314-5}.
 
-\bibitem{kelemen_peridotite_2020}
-Kelemen, P.B., McQueen, N., Wilcox, J., Renforth, P., Dipple, G., \& Vankeuren, A.P., ``Engineered carbon mineralization in ultramafic rocks for CO2 removal from air: Review and new insights,'' \textit{Chemical Geology}, 550, 119628, 2020. DOI: \url{https://doi.org/10.1016/j.chemgeo.2020.119628}.
-
 \bibitem{koch_geomet_2019}
 Koch, P.H., Lund, C., \& Rosenkranz, J., ``Automated drill core mineralogical characterization method for texture classification and modal mineralogy estimation for geometallurgy,'' \textit{Minerals Engineering}, 136, 99--110, 2019. DOI: \url{https://doi.org/10.1016/j.mineng.2019.03.008}.
 
@@ -505,17 +509,11 @@ Peukert, W., Xu, Z., \& Dowd, P.A., ``A Review of Sensor-Based Sorting in Minera
 \bibitem{digitalrocks_portal_2023}
 Prodanović, M., Esteva, M., McClure, J., Chang, B.C., Santos, M., Radhakrishnan, S., \textit{et al.}, ``Digital Rocks Portal (Digital Porous Media): Connecting data, simulation and community,'' \textit{E3S Web of Conferences}, 367, 01010, 2023. DOI: \url{https://doi.org/10.1051/e3sconf/202336701010}.
 
-\bibitem{raissi_pinns_2019}
-Raissi, M., Perdikaris, P., \& Karniadakis, G.E., ``Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations,'' \textit{Journal of Computational Physics}, 378, 686--707, 2019. DOI: \url{https://doi.org/10.1016/j.jcp.2018.10.045}.
-
 \bibitem{reich_critical_2025}
 Reich, M., \& Simon, A.C., ``Critical Minerals,'' \textit{Annual Review of Earth and Planetary Sciences}, 53, 149--177, 2025. DOI: \url{https://doi.org/10.1146/annurev-earth-040523-023316}.
 
 \bibitem{sarker_tailings_2022}
 Sarker, P.K., Haque, N., Bhuiyan, M.A.H., Bruckard, W., \& Pramanik, B.K., ``Recovery of strategically important critical minerals from mine tailings,'' \textit{Journal of Environmental Chemical Engineering}, 10(3), 107622, 2022. DOI: \url{https://doi.org/10.1016/j.jece.2022.107622}.
-
-\bibitem{doe_mine_future_2025}
-U.S. Department of Energy, ``Funding Notice: Mine of the Future -- Proving Ground Initiative,'' Hydrocarbons and Geothermal Energy Office, November 14, 2025. \url{https://www.energy.gov/hgeo/funding-notice-mine-future-proving-ground-initiative}.
 
 \bibitem{manchester_nxct_2026}
 University of Manchester, ``NXCT at the Henry Moseley X-ray Imaging Facility,'' Research Explorer, \url{https://research.manchester.ac.uk/en/equipments/nxct-at-the-henry-moseley-x-ray-imaging-facility/}. Accessed March 27, 2026.
