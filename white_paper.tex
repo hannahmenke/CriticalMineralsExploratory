@@ -13,6 +13,7 @@
 \usepackage{array}
 \usepackage{ragged2e}
 \usepackage{tikz}
+\usepackage{placeins}
 \usepackage{hyperref}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric}
 
@@ -65,6 +66,15 @@ A capability gap nevertheless remains. Across this distributed landscape, routin
 
 These examples show that the capability base already exists. The main limitation lies not in the absence of imaging instruments, but in the weak integration of 3D structure, mineral chemistry, reactive transport, and reusable data standards within ore-system workflows.
 
+Figure~\ref{fig:drp_integrated_workflow} summarises the integrated DRP workflow proposed here, linking ex situ correlative characterisation, in situ reactive experiments, image interpretation, physics-based modelling, AI-enabled uncertainty analysis, and process decision-making.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/drp_integrated_workflow.png}
+\caption{Integrated Digital Rock Physics workflow for critical-mineral systems. Static correlative imaging resolves registered geometry and mineral chemistry, while in situ experiments track reactive flow, structural change, and effluent chemistry under process-relevant conditions. AI-assisted segmentation supports image interpretation, physics-based models translate those data into transport, liberation, and reaction predictions, and surrogate models with uncertainty estimates accelerate decision support for comminution, leaching, Direct Lithium Extraction, recycling, and tailings valorisation.}
+\label{fig:drp_integrated_workflow}
+\end{figure}
+
 Figure~\ref{fig:drp_value_chain} shows where DRP can add decision-relevant information across the critical-minerals value chain, from exploration through recycling, together with the specific imaging methods and process decisions that DRP informs at each stage.
 
 \begin{figure}[htbp]
@@ -80,20 +90,17 @@ Figure~\ref{fig:drp_value_chain} shows where DRP can add decision-relevant infor
   downarrow/.style={-{Stealth[length=5pt,width=4pt]}, draw=black!30, dashed},
 ]
 
-%% ── Stage boxes (top row) ────────────────────────────────────────
 \node[stage, fill=blue!10]   (EXP)  at ( 0.00, 0) {I Exploration};
 \node[stage, fill=cyan!10]   (CHAR) at ( 4.50, 0) {II Characterisation};
 \node[stage, fill=orange!12] (PROC) at ( 9.00, 0) {III Processing \&\\[-2pt]Extraction};
 \node[stage, fill=violet!8]  (ENGI) at (13.50, 0) {IV Engineered\\[-2pt]Materials};
 \node[stage, fill=green!10]  (REC)  at (18.00, 0) {V Recycling \&\\[-2pt]Tailings};
 
-%% ── Arrows between stage boxes ───────────────────────────────────
 \draw[steparrow] (EXP.east)  -- (CHAR.west);
 \draw[steparrow] (CHAR.east) -- (PROC.west);
 \draw[steparrow] (PROC.east) -- (ENGI.west);
 \draw[steparrow] (ENGI.east) -- (REC.west);
 
-%% ── Contribution boxes (bottom row) ─────────────────────────────
 \node[contrib, fill=blue!4, below=1.0cm of EXP] (EXP_C) {%
   \textbf{Methods:}\\
   $\mu$CT, nano-CT,\\
@@ -159,7 +166,6 @@ Figure~\ref{fig:drp_value_chain} shows where DRP can add decision-relevant infor
   tailings flowsheet design
 };
 
-%% ── Vertical connectors ──────────────────────────────────────────
 \draw[downarrow] (EXP.south)  -- (EXP_C.north);
 \draw[downarrow] (CHAR.south) -- (CHAR_C.north);
 \draw[downarrow] (PROC.south) -- (PROC_C.north);
@@ -281,28 +287,108 @@ Excellent national facilities but uneven local access & Regional centres can cha
 
 Table~\ref{tab:facility_gap_model} indicates that the recommended investment is better conceived as a platform-integration programme than as a single instrument purchase. A phased approach is the most plausible. An initial phase should upgrade existing beamlines and laboratories with shared sample environments, outlet-chemistry analytics, reference materials, data engineering, and benchmark-ready modelling workflows running across GPU and CPU/HPC resources. A later phase should establish dedicated endstations only where demand, staff capacity, and demonstrator results justify them. The same logic applies to financing. As order-of-magnitude author estimates rather than published facility budget figures, the initial phase would likely sit in a multi-million-pound or multi-million-euro upgrade category, while dedicated endstations with permanent staff, sample environments, GPU and CPU/HPC compute support, and data services would likely move into a low-tens-of-millions capital category.
 
+Figure~\ref{fig:implementation_roadmap} translates these infrastructure priorities into a staged delivery roadmap aligned with the near-term recommendations, the EU's 2030 CRMA benchmarks, and the UK's 2035 domestic-production ambition.
+
+\begin{figure}[htbp]
+\centering
+\makebox[\textwidth][c]{%
+\begin{tikzpicture}[
+  year/.style={circle, draw=black!45, line width=0.8pt, minimum size=1.12cm,
+               align=center, font=\bfseries\normalsize, text=black!85},
+  card/.style={rectangle, rounded corners=3pt, draw=black!25, line width=0.7pt,
+               minimum width=5.0cm, text width=4.65cm, align=left,
+               font=\scriptsize, inner sep=6pt},
+  line/.style={line width=1.2pt, draw=black!35},
+  arrow/.style={-{Stealth[length=7pt,width=5pt]}, line width=1.2pt, draw=black!35},
+  connector/.style={line width=0.7pt, draw=black!28}
+]
+
+\coordinate (y2027) at (2.45,0);
+\coordinate (y2028) at (6.15,0);
+\coordinate (y2030) at (9.85,0);
+\coordinate (y2035) at (13.55,0);
+
+\draw[line] (y2027) -- (y2030);
+\draw[arrow] (y2030) -- (14.45,0);
+
+\node[year, fill=blue!10] (n2027) at (y2027) {2027};
+\node[year, fill=cyan!10] (n2028) at (y2028) {2028};
+\node[year, fill=orange!12] (n2030) at (y2030) {2030};
+\node[year, fill=green!10] (n2035) at (y2035) {2035};
+
+\node[card, fill=blue!4, below=0.85cm of n2027] (c2027) {%
+  \textbf{Demonstrate}\\[2pt]
+  \mbox{DRP-to-processing pilot calls}\\
+  \mbox{Digital Ore Passport draft}\\
+  \mbox{Hard-rock, DLE, recycling cases}
+};
+
+\node[card, fill=cyan!4, above=0.85cm of n2028] (c2028) {%
+  \textbf{Standardise and share}\\[2pt]
+  \mbox{Federated Digital Ore Database}\\
+  \mbox{First 100 benchmark datasets}\\
+  \mbox{Cross-facility workflows}
+};
+
+\node[card, fill=orange!5, below=0.85cm of n2030] (c2030) {%
+  \textbf{Scale infrastructure}\\[2pt]
+  \mbox{Geo-reactive platforms}\\
+  \mbox{UK and European access nodes}\\
+  \mbox{Shared data-compute workflows}\\
+  \mbox{EU CRMA benchmarks}
+};
+
+\node[card, fill=green!4, above=0.85cm of n2035] (c2035) {%
+  \textbf{Policy impact}\\[2pt]
+  \mbox{Supports Vision 2035}\\
+  \mbox{Recovery and circularity gains}\\
+  \mbox{Decision support for CRM projects}
+};
+
+\draw[connector] (n2027.south) -- (c2027.north);
+\draw[connector] (n2028.north) -- (c2028.south);
+\draw[connector] (n2030.south) -- (c2030.north);
+\draw[connector] (n2035.north) -- (c2035.south);
+
+\end{tikzpicture}%
+}
+\caption{Proposed implementation roadmap for a UK-European critical-minerals DRP programme. Near-term demonstrators and data standards provide the evidence base for shared benchmark datasets and a federated Digital Ore Database, followed by integrated geo-reactive infrastructure and mature decision-support workflows aligned with 2030 EU critical-raw-materials benchmarks and the UK's 2035 domestic-production ambition.}
+\label{fig:implementation_roadmap}
+\end{figure}
+
+\FloatBarrier
+\clearpage
+\newgeometry{a4paper, margin=0.72in}
+
 The following recommendations identify actions that could be initiated within a single public funding cycle:
 
-\begin{tcolorbox}[enhanced, colback=gray!3!white, colframe=blue!40!black, title=\Large\textbf{Key Policy Recommendations}, colbacktitle=blue!40!black, drop fuzzy shadow, fonttitle=\bfseries, breakable, arc=2mm, boxrule=1pt]
+\begin{tcolorbox}[enhanced, colback=gray!3!white, colframe=blue!40!black,
+title=\large\textbf{Key Policy Recommendations}, colbacktitle=blue!40!black,
+drop fuzzy shadow, fonttitle=\bfseries, breakable, arc=1.5mm, boxrule=0.8pt,
+boxsep=1mm, left=1.5mm, right=1.5mm, top=1.2mm, bottom=1.2mm,
+toptitle=1mm, bottomtitle=1mm, fontupper=\footnotesize,
+before upper={\setlength{\parskip}{1.2pt}\setlength{\parindent}{0pt}}]
 \textbf{1. Launch Translational Demonstrators by 2027:}\\
 UKRI, Horizon Europe, and national innovation agencies should establish dedicated calls for DRP-to-processing demonstrators. Each project should require a tripartite consortium spanning imaging science, orebody owner or recycler, and process scale-up capability. An initial portfolio of three to five pilot projects, each moving from characterisation to pilot-plant decisions within 24--36 months, would provide a credible first step. This portfolio should include at least one hard-rock liberation case, one brine or DLE case, and one recycling or tailings case. Each project must end with a public benchmark dataset, a documented processing or recovery decision, and a head-to-head comparison against the conventional characterisation method it replaces. Such comparisons are currently sparse, yet they are essential if DRP is to secure sustained investment in critical-minerals applications.
 
-\vspace{2mm}
+\vspace{0.6mm}
 \textbf{2. Define a ``Digital Ore Passport'' Standard by 2027:}\\
 The European Critical Raw Materials Board, together with the relevant UK funding and geological-survey institutions, should convene EuroGeoSurveys, the British Geological Survey, national geological surveys, and major imaging facilities to publish a common minimum data specification for publicly supported mining, recycling, and tailings projects across the UK and Europe \cite{eu_crm_board_2026, bgs_uk_crm_2022, uk_vision_2035_2026}. The specification should include multi-modal imaging metadata, mineralogical ground truth, uncertainty estimates, machine-readable process descriptors, and standardized reporting for influent and effluent chemistry in reactive experiments. Adoption across publicly funded pilot projects on both sides by 2028 should be the target.
 
-\vspace{2mm}
+\vspace{0.6mm}
 \textbf{3. Stand Up a Federated UK-European Digital Ore Database by 2028:}\\
 The European Commission, UK agencies, national geological surveys, and major imaging facilities should create a shared repository with open metadata, benchmark datasets, and application programming interfaces for model development. The most practical route is to build this through EuroGeoSurveys' European Geological Data Infrastructure (EGDI), ensure interoperability with the JRC's Raw Materials Information System (RMIS), and provide a formally linked UK contribution rather than create isolated parallel platforms \cite{egdi_2026, rmis_2026, bgs_uk_crm_2022}. Earlier geoscience data-sharing efforts, including previous EGDI phases and INSPIRE-compliant national portals, have had limited uptake in practice, in part because data deposition has been voluntary, metadata standards have been inconsistently enforced, and long-term curation funding has often lapsed after initial project periods. A Digital Ore Database will face the same pressures unless deposition is made a condition of public funding from the outset, curation is resourced beyond the initial build phase, and the data schema is designed around the needs of downstream users, namely process engineers, geometallurgists, and ML developers, rather than around archival completeness alone. A suitable first milestone would be 100 well-annotated benchmark datasets covering hard-rock ores, tailings, and battery-recycling feedstocks within the first two years, alongside a small suite of shared reference materials and at least three validated cross-facility workflows spanning both the UK and continental Europe.
 
-\vspace{2mm}
+\vspace{0.6mm}
 \textbf{4. Build Workforce Capacity with Cross-Disciplinary Training Centres:}\\
 The UK and Europe should fund doctoral and industrial training centres focused on the intersection of imaging, machine learning, mineral processing, and recycling. The aim is not only to train students, but to build a talent pipeline capable of moving between beamlines, laboratories, software teams, and pilot plants. Two to three centres, collectively supporting at least 40 jointly supervised researchers by 2030, would form a meaningful initial cohort.
 
-\vspace{2mm}
+\vspace{0.6mm}
 \textbf{5. Build Integrated Geo-Reactive Endstations by 2030:}\\
 Major facilities in the UK and Europe should co-invest in a small number of shared endstations that combine hard X-ray imaging with chemically sensitive mapping, synchronised outlet-fluid analysis, and dedicated GPU and CPU/HPC compute for reconstruction, simulation, and AI inference. These platforms should support brines, acidic and alkaline lixiviants, elevated temperatures and pressures, and controlled mechanical loading, with inline measurements such as ICP-OES/ICP-MS, pH/Eh, conductivity, and complementary spectroscopic probes. The first stage should focus on upgrading existing beamlines and laboratories; dedicated endstations should follow where user demand and demonstrator outcomes justify them. A practical near-term target is one UK platform and one to two continental European platforms, operated through coordinated access and common data standards, and configured for ores, tailings, and recycling feedstocks rather than only idealised model systems.
 \end{tcolorbox}
+\clearpage
+\restoregeometry
 
 \section{Conclusion}
 The existing Digital Rock Physics community positions the UK and Europe to make a distinctive contribution to critical minerals development. Many of the most consequential decisions in critical-minerals development, from orebody evaluation to comminution, leaching, and recycling, depend on three-dimensional structural and reactive information that bulk assays and section-based methods cannot fully resolve. DRP offers a way to supply that information by combining multiscale imaging, correlative chemistry, physics-based simulation, AI-assisted interpretation, and access to GPU and CPU/HPC compute to characterise both ores and engineered porous materials. In UK and European settings, that value lies not only in stronger supply security and process efficiency, but also in making lower-impact, more publicly defensible development pathways easier to identify and justify. The highest-value facility investment is therefore not another standalone imaging instrument, but integrated geo-reactive platforms that combine 3D imaging, chemistry, synchronised effluent analysis, and reproducible modelling workflows under realistic flow, thermal, pressure, and mechanical conditions. A phased programme should link regional centres that provide screening, sample preparation, training-data generation, and feeder access to national compute with national facilities that deliver multimodal in situ measurements and shared data infrastructures that turn those experiments into reusable standards, benchmark datasets, and validated surrogates. The first wave should centre on one brine or DLE demonstrator, one hard-rock liberation demonstrator, and one recycling or tailings demonstrator, all linked from the outset to common data standards and a federated UK-European digital ore infrastructure.
