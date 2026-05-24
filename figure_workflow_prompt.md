@@ -42,10 +42,10 @@ Overall layout:
 
 Column 1: representative materials
 - Show a compact group of three stylised sample icons:
-  - an ore core or drill chip;
-  - a tailings particle or crushed ore particle;
-  - a black-mass / recycled battery-material powder icon.
-- Label this group only as "samples".
+  - an ore core or drill chip, labelled "ore core";
+  - a tailings particle or crushed ore particle, labelled "tailings / crushed ore";
+  - a black-mass / recycled battery-material powder icon, labelled "black mass".
+- Also label the overall group "samples".
 - Show the samples splitting into two arrows: one to the upper ex situ lane and one to the lower in situ lane.
 
 Column 2 upper lane: ex situ correlative characterisation
@@ -85,6 +85,7 @@ Column 4: simulation and model learning
 - Split this column into two stacked but connected blocks.
 - First block: physics-based image simulation.
   - Show the segmented volume becoming a mesh or pore-network model.
+  - The mesh / pore-network cube must have the same apparent dimensions, aspect ratio, and visual weight as the segmented "geometry + chemistry" cube in Column 3; do not squash, flatten, or shrink it.
   - Add flow arrows, a dissolution front, and a small output plot.
   - Label this block "physics model".
   - Include short tags: "reactive transport", "liberation", "permeability".
